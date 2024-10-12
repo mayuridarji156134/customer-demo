@@ -12,7 +12,7 @@ class ContactController extends Controller
     // List all contacts for a customer
     public function index(Customer $customer)
     {
-        $contacts = $customer->contacts()->get();
+        $contacts = $customer->contacts()->orderBy('id', 'desc')->get();
         return response()->json($contacts);
     }
 
